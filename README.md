@@ -1,6 +1,6 @@
 # Artisan UI
 
-List all availables artisan commands.
+![image](https://user-images.githubusercontent.com/45472257/141324726-4279ae1a-cacc-4fd7-b3de-fe3d5be6b999.png)
 
 ## Installing The Artisan UI Dashboard
 
@@ -15,3 +15,7 @@ After installing Artisan UI, you may publish its assets using the `artisan-ui:in
 ```sh
 php artisan artisan-ui:install
 ```
+
+## Inspiration
+
+https://artisan.page created by [@jbrooksuk](https://twitter.com/jbrooksuk).
