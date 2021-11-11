@@ -30,12 +30,12 @@ router.beforeEach((to, from, next) => {
   next();
 });
 
-/**
+
 Vue.component(
-  "icon-information-circle",
-  require("./components/icons/InformationCircle.vue").default
+  "clipboard-copy",
+  require("./components/icons/ClipboardCopy.vue").default
 ); 
-*/
+
 
 Vue.mixin(Base);
 

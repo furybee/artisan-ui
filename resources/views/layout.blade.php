@@ -3,7 +3,7 @@
     <head>
         <!-- Meta Information -->
         <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}" />
         <meta name="robots" content="noindex, nofollow" />
 
@@ -15,7 +15,7 @@
         <link href="{{ asset(mix('app.css', 'vendor/artisan-ui')) }}" rel="stylesheet" type="text/css" />
     </head>
     <body class="bg-gray-100">
-        <div id="artisan-ui" class="main container mx-auto">
+        <div id="artisan-ui" class="main container mx-auto px-2 sm:px-0">
             <router-view></router-view>
         </div>
 

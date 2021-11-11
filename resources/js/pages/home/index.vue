@@ -37,7 +37,7 @@
           :key="command.name"
           class="shadow sm:rounded-md bg-white mb-6"
         >
-          <a href="#" class="block hover:bg-gray-50">
+          <div class="block hover:bg-gray-50">
             <div class="px-4 py-4 sm:px-6">
               <div class="flex items-center justify-between">
                 <p class="text-lg font-bold text-blue-900 truncate">
@@ -112,14 +112,31 @@
               </div>
 
               <div
-                class="p-4 mt-3 -mx-6 -mb-4 bg-blue-900 text-white block sm:rounded-b-md"
+                class="group flex items-center px-4 py-2 mt-3 -mx-6 -mb-4 bg-blue-900 text-white sm:rounded-b-md"
               >
-                <pre v-for="(usage, index) in command.usage" :key="index">{{
-                  usage
-                }}</pre>
+                <div class="flex-initial">
+                  <pre
+                    v-for="(usage, index) in command.usage"
+                    :key="index"
+                    class="text-sm whitespace-pre-wrap overflow-x-auto"
+                    >{{ usage }}</pre
+                  >
+                </div>
+                <div class="flex-1 items-center text-right">
+                  <button
+                    type="button"
+                    class="focus:opacity-100 hover:opacity-100 opacity-75 text-white transition duration-200 focus:outline-none"
+                    @click.prevent="
+                      copyToClipboard('php artisan ' + command.name)
+                    "
+                  >
+                    <span class="sr-only">Click to copy</span>
+                    <clipboard-copy size="5"></clipboard-copy>
+                  </button>
+                </div>
               </div>
             </div>
-          </a>
+          </div>
         </li>
       </ul>
     </div>
@@ -128,8 +145,10 @@
 
 <script>
 import collect from "collect.js";
+import Clipboard from "../../mixins/clipboard";
 
 export default {
+  mixins: [Clipboard],
   data() {
     return {
       commands: [],
