@@ -1,6 +1,7 @@
 # Artisan UI
 
-![image](https://user-images.githubusercontent.com/45472257/141324726-4279ae1a-cacc-4fd7-b3de-fe3d5be6b999.png)
+![image](https://user-images.githubusercontent.com/45472257/141347005-1776d774-5abc-4ce8-bb28-c646e6364666.png)
+
 
 ## Installing The Artisan UI Dashboard
 
