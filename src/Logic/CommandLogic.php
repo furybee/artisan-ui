@@ -80,8 +80,13 @@ abstract class CommandLogic
 
         return collect(self::classesInNamespace($namespace))
             ->map(function ($className) {
-                return resolve($className);
+                if (self::isConsoleCommand($className) === true) {
+                    return resolve($className);
+                }
+
+                return null;
             })
+            ->filter()
             ->map(function (Command $command) use ($descriptor) {
                 $output = new BufferedOutput();
                 $descriptor->describe($output, $command);
@@ -99,5 +104,24 @@ abstract class CommandLogic
             })
             ->sortBy('name')
             ->values();
+    }
+
+    /**
+     * @param string $className
+     * @return boolean
+     */
+    public static function isConsoleCommand(string $className): bool
+    {
+        $parentClass = get_parent_class($className);
+
+        if ($parentClass === false) {
+            return false;
+        }
+
+        if ($parentClass !== 'Illuminate\Console\Command') {
+            return self::isConsoleCommand(get_parent_class($className));
+        }
+
+        return true;
     }
 }
